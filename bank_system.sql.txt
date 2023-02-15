@@ -1,0 +1,103 @@
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `bank`
+--
+CREATE DATABASE bank_system;
+-- --------------------------------------------------------
+USE bank_system;
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `balance` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `Name`, `email`, `balance`) VALUES
+(1, 'Pratiksha', 'adatkarpratiksha@gmail.com', 32201),
+(2, 'Ankit', 'ankit@gmail.com', 32202),
+(3, 'Atharva', 'atharva@yahoo.com', 32203),
+(4, 'Pranoti', 'pranoti@gmail.com', 32206),
+(5, 'Priti', 'pritibhise@yahoo.com', 32207),
+(6, 'Gaurav', 'gauravrao@gmail.com', 32210),
+(7, 'Mrugank', 'mrugank@gmail.com', 32214),
+(8, 'Diya', 'diyayadav@yahoo.com', 32216),
+(9, 'James', 'jamess@yahoo.com', 32220),
+(10, 'Priyal', 'priyal.wagh@gmail.com', 32221);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `his_id` int(11) NOT NULL,
+  `sender` varchar(255) NOT NULL,
+  `reciever` varchar(255) NOT NULL,
+  `amount` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`his_id`, `sender`, `reciever`, `amount`) VALUES
+(1, 'Pratiksha', 'Diya', 700),
+(2, 'Mrugank', 'Priyal', 1200),
+(3, 'Pranoti', 'Pratiksha', 2300),
+(4, 'Priti', 'Ankit', 650),
+(5, 'Diya', 'James', 2100),
+(6, 'Atharva', 'Mrugank', 3000),
+(7, 'Pratiksha', 'Gaurav', 12000),
+(8, 'James', 'Atharva', 1800);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`his_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `his_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
